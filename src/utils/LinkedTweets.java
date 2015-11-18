@@ -99,7 +99,7 @@ public class LinkedTweets implements DataActions {
 		int up = pivot;
 		int down = pivot;
 		
-		while(up>=0 && down<=tweets.length) {
+		while(down>=0 && up<=tweets.length) {
 			if(tweets[up].getText().contains(term)) {
 				matches.add(tweets[up]);
 			}

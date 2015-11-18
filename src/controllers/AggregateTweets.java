@@ -15,7 +15,7 @@ public class AggregateTweets implements Aggregate {
 	private LinkedTweets filteredContents = new LinkedTweets();
 	
 	// Reads specific columns from rows of CSV file into 'fileContents', returns number of lines read 
-	public int readFile(String filename) throws IOException {
+	public int getTimeline(String filename) throws IOException {
 		CSVReader reader = new CSVReader(new FileReader(filename), ',' , '"' , 1);
 		
 	    //Read CSV line by line and use the string array as you want
@@ -26,7 +26,6 @@ public class AggregateTweets implements Aggregate {
 			  String date = nextLine[3];	// Date tweeted
 			  String text = nextLine[5];	// Tweet contents/text
 			  Tweet tweet = new Tweet(id, date, text);
-			  System.out.println("\n"+tweet.getId()+" : "+tweet.getText());
 			  fileContents.add(tweet);
 	       }
 	    }
@@ -47,7 +46,7 @@ public class AggregateTweets implements Aggregate {
 	
 	public static void main(String[] args) throws Exception {
 		AggregateTweets thing = new AggregateTweets();
-		thing.readFile("tweets.csv");
+		thing.getTimeline("tweets.csv");
 		String[] searchTerms = {"cool"};
 		thing.filter(searchTerms);
 		for(Tweet t : thing.filteredContents.toArray()) {
