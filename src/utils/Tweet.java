@@ -6,10 +6,10 @@ public class Tweet {
 	private String text;
 	private String date;
 
-	public Tweet(String ID, String Text, String Date) {
+	public Tweet(String ID, String Date, String Text) {
 		id = ID;
-		text = Text;
 		date = Date;
+		text = Text;
 	}
 
 	public String getId() {
